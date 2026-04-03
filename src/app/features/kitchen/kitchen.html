@@ -1,0 +1,386 @@
+<div class="flex min-h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <!-- Main Content -->
+    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+
+        <!-- Topbar -->
+        <header
+            class="bg-[#0d1220] border-b border-[#1e2a45] px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 shrink-0">
+            <div class="flex items-center gap-4">
+                <div>
+                    <h1 class="text-white font-bold text-base">Kitchen Display System</h1>
+                    <p class="text-[#4a5568] text-xs">Real-time order management</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 bg-[#1a2338] border border-[#1e2a45] rounded-full px-3 py-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-emerald-400 text-xs font-medium">Live</span>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-xl px-3 py-1.5">
+                    <p class="text-white text-xs font-bold" id="clock">19:42:08</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- KDS Column Stats -->
+        <div class="bg-[#0d1220] border-b border-[#1e2a45] px-4 sm:px-6 py-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
+                <span class="text-[#6b7a99] text-xs font-medium">New</span>
+                <span class="text-white text-sm font-bold ml-1">3</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+                <span class="text-[#6b7a99] text-xs font-medium">Preparing</span>
+                <span class="text-white text-sm font-bold ml-1">4</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                <span class="text-[#6b7a99] text-xs font-medium">Ready</span>
+                <span class="text-white text-sm font-bold ml-1">2</span>
+            </div>
+                <div class="w-full sm:w-auto sm:ml-auto text-[#4a5568] text-xs">Avg prep time: <span class="text-white font-semibold">12
+                    min</span></div>
+        </div>
+
+        <!-- KDS Columns -->
+        <main class="flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-5">
+            <div class="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3 gap-4 min-w-0">
+
+                <!-- Column: New Orders -->
+                <div class="flex flex-col gap-3 min-w-0">
+                    <div class="flex items-center justify-between px-1">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
+                            <span class="text-white font-semibold text-sm">New Orders</span>
+                        </div>
+                        <span
+                            class="bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+                    </div>
+
+                    <!-- Order Card 1 -->
+                    <div
+                        class="bg-[#0d1220] border border-blue-500/30 rounded-2xl overflow-hidden hover:border-blue-400/60 transition-all">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-blue-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1042</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 04</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-orange-400 text-xs font-bold bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-full">🔥
+                                    Now</span>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold shrink-0 mt-0.5">2</span>
+                                    <div>
+                                        <p class="text-white text-xs font-medium">Grilled Chicken</p>
+                                        <p class="text-[#4a5568] text-[11px]">Full portion — No chili</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold shrink-0 mt-0.5">1</span>
+                                    <div>
+                                        <p class="text-white text-xs font-medium">Fried Rice</p>
+                                        <p class="text-[#4a5568] text-[11px]">Large — Extra egg</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start gap-2">
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold shrink-0 mt-0.5">1</span>
+                                    <div>
+                                        <p class="text-white text-xs font-medium">Kottu Roti</p>
+                                        <p class="text-[#4a5568] text-[11px]">Half portion</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <button
+                                class="w-full bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Start Preparing →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 2 -->
+                    <div
+                        class="bg-[#0d1220] border border-blue-500/30 rounded-2xl overflow-hidden hover:border-blue-400/60 transition-all">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-blue-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1041</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 07</span>
+                            </div>
+                            <span class="text-blue-400 text-xs font-medium">1m ago</span>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <span
+                                    class="w-5 h-5 rounded-md bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold shrink-0 mt-0.5">2</span>
+                                <div>
+                                    <p class="text-white text-xs font-medium">Devilled Prawns</p>
+                                    <p class="text-[#4a5568] text-[11px]">Full portion</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <button
+                                class="w-full bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Start Preparing →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 3 -->
+                    <div
+                        class="bg-[#0d1220] border border-blue-500/30 rounded-2xl overflow-hidden hover:border-blue-400/60 transition-all">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-blue-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1040</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Takeout</span>
+                            </div>
+                            <span class="text-blue-400 text-xs font-medium">3m ago</span>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <span
+                                    class="w-5 h-5 rounded-md bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold shrink-0 mt-0.5">1</span>
+                                <div>
+                                    <p class="text-white text-xs font-medium">Noodles</p>
+                                    <p class="text-[#4a5568] text-[11px]">Half portion — Veg</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <button
+                                class="w-full bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Start Preparing →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column: Preparing -->
+                <div class="flex flex-col gap-3 min-w-0">
+                    <div class="flex items-center justify-between px-1">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-orange-400 animate-pulse"></div>
+                            <span class="text-white font-semibold text-sm">Preparing</span>
+                        </div>
+                        <span
+                            class="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold px-2 py-0.5 rounded-full">4</span>
+                    </div>
+
+                    <!-- Preparing Card 1 -->
+                    <div
+                        class="bg-[#0d1220] border border-orange-500/40 rounded-2xl overflow-hidden hover:border-orange-400/70 transition-all">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-orange-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1038</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 11</span>
+                            </div>
+                            <span
+                                class="text-red-400 text-xs font-bold bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full">⏰
+                                14m</span>
+                        </div>
+                        <div class="px-4 pt-3 pb-2">
+                            <!-- Progress bar -->
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[#4a5568] text-2xs">Progress</span>
+                                <span class="text-orange-400 text-2xs font-semibold">70%</span>
+                            </div>
+                            <div class="w-full bg-[#1a2338] rounded-full h-1.5">
+                                <div class="bg-orange-400 h-1.5 rounded-full" style="width:70%"></div>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                <p class="text-[#6b7a99] text-xs line-through">Grilled Fish (x1)</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <div class="w-4 h-4 rounded-full border-2 border-orange-400 shrink-0 mt-0.5"></div>
+                                <p class="text-white text-xs font-medium">Lamb Curry (x2)</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <div class="w-4 h-4 rounded-full border-2 border-[#2d3a52] shrink-0 mt-0.5"></div>
+                                <p class="text-[#6b7a99] text-xs">Naan Bread (x3)</p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <button
+                                class="w-full bg-orange-500/10 border border-orange-500/30 hover:bg-orange-500/20 text-orange-400 text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Mark as Ready ✓
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Preparing Card 2 -->
+                    <div class="bg-[#0d1220] border border-orange-500/40 rounded-2xl overflow-hidden">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-orange-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1037</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 03</span>
+                            </div>
+                            <span class="text-orange-400 text-xs font-medium">8m</span>
+                        </div>
+                        <div class="px-4 pt-3 pb-2">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[#4a5568] text-2xs">Progress</span>
+                                <span class="text-orange-400 text-2xs font-semibold">40%</span>
+                            </div>
+                            <div class="w-full bg-[#1a2338] rounded-full h-1.5">
+                                <div class="bg-orange-400 h-1.5 rounded-full" style="width:40%"></div>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                <p class="text-[#6b7a99] text-xs line-through">Soup (x2)</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <div class="w-4 h-4 rounded-full border-2 border-[#2d3a52] shrink-0 mt-0.5"></div>
+                                <p class="text-[#6b7a99] text-xs">Biryani (x2)</p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <button
+                                class="w-full bg-orange-500/10 border border-orange-500/30 hover:bg-orange-500/20 text-orange-400 text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Mark as Ready ✓
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column: Ready -->
+                <div class="flex flex-col gap-3 min-w-0">
+                    <div class="flex items-center justify-between px-1">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                            <span class="text-white font-semibold text-sm">Ready to Serve</span>
+                        </div>
+                        <span
+                            class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded-full">2</span>
+                    </div>
+
+                    <!-- Ready Card 1 -->
+                    <div
+                        class="bg-[#0d1220] border border-emerald-500/40 rounded-2xl overflow-hidden hover:border-emerald-400/70 transition-all">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-emerald-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1035</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 09</span>
+                            </div>
+                            <span class="text-emerald-400 text-xs font-bold">✓ Ready</span>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                <p class="text-[#6b7a99] text-xs line-through">Pasta Alfredo (x1)</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                <p class="text-[#6b7a99] text-xs line-through">Garlic Bread (x2)</p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 space-y-2">
+                            <div
+                                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-[#1a2338] border border-[#1e2a45] rounded-xl px-3 py-2">
+                                <span class="text-[#6b7a99] text-xs">Assign Waiter</span>
+                                <select
+                                    class="w-full sm:w-auto bg-transparent text-white text-xs font-medium focus:outline-none">
+                                    <option>Select...</option>
+                                    <option>Sachini (W-01)</option>
+                                    <option>Dinesh (W-02)</option>
+                                </select>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Dispatch to Waiter 🚀
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ready Card 2 -->
+                    <div class="bg-[#0d1220] border border-emerald-500/40 rounded-2xl overflow-hidden">
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-[#1e2a45] bg-emerald-500/5">
+                            <div>
+                                <span class="text-white font-bold text-sm">#ORD-1034</span>
+                                <span class="text-[#4a5568] text-xs ml-2">Table 06</span>
+                            </div>
+                            <span class="text-emerald-400 text-xs font-bold">✓ Ready</span>
+                        </div>
+                        <div class="p-4 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
+                                <p class="text-[#6b7a99] text-xs line-through">Rice & Curry (x4)</p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 space-y-2">
+                            <div
+                                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-[#1a2338] border border-[#1e2a45] rounded-xl px-3 py-2">
+                                <span class="text-[#6b7a99] text-xs">Assign Waiter</span>
+                                <select
+                                    class="w-full sm:w-auto bg-transparent text-white text-xs font-medium focus:outline-none">
+                                    <option>Select...</option>
+                                    <option>Sachini (W-01)</option>
+                                    <option>Dinesh (W-02)</option>
+                                </select>
+                            </div>
+                            <button
+                                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold py-2.5 rounded-xl transition-colors">
+                                Dispatch to Waiter 🚀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    function tick() {
+        const el = document.getElementById('clock');
+        if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour12: false });
+    }
+    tick(); setInterval(tick, 1000);
+</script>

@@ -1,0 +1,229 @@
+<!-- customers.component.html -->
+
+<div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+
+        <!-- Topbar -->
+        <header class="bg-[#0d1220] border-b border-[#1e2a45] px-6 py-3.5 flex items-center justify-between shrink-0">
+            <div>
+                <h1 class="text-white font-bold text-base">Customers</h1>
+                <p class="text-[#4a5568] text-xs">CRM — Customer profiles and loyalty</p>
+            </div>
+            <button
+                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 4v16m8-8H4" />
+                </svg>
+                Add Customer
+            </button>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Total Customers</p>
+                    <p class="text-white text-2xl font-bold">1,248</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">New This Month</p>
+                    <p class="text-emerald-400 text-2xl font-bold">+47</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Loyalty Members</p>
+                    <p class="text-violet-400 text-2xl font-bold">384</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Avg. Lifetime Value</p>
+                    <p class="text-orange-400 text-2xl font-bold">Rs. 8,420</p>
+                </div>
+            </div>
+
+            <!-- Search & Filter -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <div class="relative flex-1">
+                    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4a5568]" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                    <input type="text" placeholder="Search by name, email or phone..."
+                        class="w-full bg-[#0d1220] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-orange-500">
+                </div>
+                <select
+                    class="bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-orange-500">
+                    <option>All Customers</option>
+                    <option>Loyalty Members</option>
+                    <option>New This Month</option>
+                    <option>Birthday This Month</option>
+                </select>
+            </div>
+
+            <!-- Customer Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+
+                <!-- Customer Card -->
+                <div
+                    class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-5 hover:border-orange-500/30 transition-all cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-linear-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold">
+                                KP</div>
+                            <div>
+                                <p class="text-white font-semibold text-sm">Kavinda Perera</p>
+                                <p class="text-[#4a5568] text-xs">+94 77 123 4567</p>
+                            </div>
+                        </div>
+                        <span
+                            class="bg-violet-500/10 text-violet-400 border border-violet-500/20 text-2xs font-bold px-2 py-0.5 rounded-full">⭐
+                            Loyal</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">24</p>
+                            <p class="text-[#4a5568] text-2xs">Visits</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-orange-400 text-sm font-bold">580</p>
+                            <p class="text-[#4a5568] text-2xs">Points</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">Rs.12k</p>
+                            <p class="text-[#4a5568] text-2xs">Total</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#4a5568] text-[11px]">Last visit: 2 days ago</span>
+                        <div class="flex gap-2">
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                            </button>
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Card 2 -->
+                <div
+                    class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-5 hover:border-orange-500/30 transition-all cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-linear-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold">
+                                NF</div>
+                            <div>
+                                <p class="text-white font-semibold text-sm">Nimali Fernando</p>
+                                <p class="text-[#4a5568] text-xs">+94 71 987 6543</p>
+                            </div>
+                        </div>
+                        <span
+                            class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-2xs font-bold px-2 py-0.5 rounded-full">New</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">3</p>
+                            <p class="text-[#4a5568] text-2xs">Visits</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-orange-400 text-sm font-bold">75</p>
+                            <p class="text-[#4a5568] text-2xs">Points</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">Rs.2.1k</p>
+                            <p class="text-[#4a5568] text-2xs">Total</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#4a5568] text-[11px]">Last visit: Today</span>
+                        <div class="flex gap-2">
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                            </button>
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Card 3 -->
+                <div
+                    class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-5 hover:border-orange-500/30 transition-all cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-linear-to-br from-teal-500 to-emerald-500 flex items-center justify-center text-white font-bold">
+                                RS</div>
+                            <div>
+                                <p class="text-white font-semibold text-sm">Ruwan Silva</p>
+                                <p class="text-[#4a5568] text-xs">+94 76 555 0011</p>
+                            </div>
+                        </div>
+                        <span
+                            class="bg-orange-500/10 text-orange-400 border border-orange-500/20 text-2xs font-bold px-2 py-0.5 rounded-full">🎂
+                            B'day</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">11</p>
+                            <p class="text-[#4a5568] text-2xs">Visits</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-orange-400 text-sm font-bold">210</p>
+                            <p class="text-[#4a5568] text-2xs">Points</p>
+                        </div>
+                        <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                            <p class="text-white text-sm font-bold">Rs.6.5k</p>
+                            <p class="text-[#4a5568] text-2xs">Total</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#4a5568] text-[11px]">Last visit: 1 week ago</span>
+                        <div class="flex gap-2">
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
+                            </button>
+                            <button
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+</div>\

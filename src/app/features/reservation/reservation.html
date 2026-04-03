@@ -1,0 +1,263 @@
+<!-- reservations.component.html -->
+
+<div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+
+        <!-- Topbar -->
+        <header class="bg-[#0d1220] border-b border-[#1e2a45] px-6 py-3.5 flex items-center justify-between shrink-0">
+            <div>
+                <h1 class="text-white font-bold text-base">Reservations</h1>
+                <p class="text-[#4a5568] text-xs">Manage table bookings and availability</p>
+            </div>
+            <button
+                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 4v16m8-8H4" />
+                </svg>
+                New Booking
+            </button>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+
+            <!-- Date picker strip -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-white font-semibold text-sm">Select Date</h2>
+                    <div class="flex items-center gap-2">
+                        <input type="date" value="2026-04-03"
+                            class="bg-[#1a2338] border border-[#1e2a45] text-white text-xs rounded-xl px-3 py-1.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                </div>
+                <div class="flex gap-2 overflow-x-auto pb-1">
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">MON</span>
+                        <span class="text-white font-bold text-lg leading-none">31</span>
+                        <span class="text-[#4a5568] text-2xs">Mar</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">TUE</span>
+                        <span class="text-white font-bold text-lg leading-none">01</span>
+                        <span class="text-[#4a5568] text-2xs">Apr</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">WED</span>
+                        <span class="text-white font-bold text-lg leading-none">02</span>
+                        <span class="text-[#4a5568] text-2xs">Apr</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-linear-to-b from-orange-500/20 to-orange-600/10 border border-orange-500/40 rounded-xl px-4 py-2.5">
+                        <span class="text-orange-400 text-2xs font-semibold">THU</span>
+                        <span class="text-white font-bold text-lg leading-none">03</span>
+                        <span class="text-orange-400 text-2xs">Today</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">FRI</span>
+                        <span class="text-white font-bold text-lg leading-none">04</span>
+                        <span class="text-[#4a5568] text-2xs">Apr</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">SAT</span>
+                        <span class="text-white font-bold text-lg leading-none">05</span>
+                        <span class="text-[#4a5568] text-2xs">Apr</span>
+                    </button>
+                    <button
+                        class="shrink-0 flex flex-col items-center bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-2.5 hover:border-orange-500 transition-all">
+                        <span class="text-[#4a5568] text-2xs">SUN</span>
+                        <span class="text-white font-bold text-lg leading-none">06</span>
+                        <span class="text-[#4a5568] text-2xs">Apr</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4 text-center">
+                    <p class="text-2xl font-bold text-white">18</p>
+                    <p class="text-[#6b7a99] text-xs mt-1">Today's Bookings</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4 text-center">
+                    <p class="text-2xl font-bold text-emerald-400">12</p>
+                    <p class="text-[#6b7a99] text-xs mt-1">Confirmed</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4 text-center">
+                    <p class="text-2xl font-bold text-orange-400">6</p>
+                    <p class="text-[#6b7a99] text-xs mt-1">Pending Arrival</p>
+                </div>
+            </div>
+
+            <!-- Reservations Table -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-4 border-b border-[#1e2a45]">
+                    <h2 class="text-white font-semibold text-sm">Today's Reservations — April 3, 2026</h2>
+                    <div class="flex gap-2">
+                        <button
+                            class="text-xs bg-orange-500/10 border border-orange-500/20 text-orange-400 px-3 py-1.5 rounded-xl hover:bg-orange-500/20 transition-colors font-medium">All</button>
+                        <button
+                            class="text-xs bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] px-3 py-1.5 rounded-xl hover:text-white transition-colors">Upcoming</button>
+                        <button
+                            class="text-xs bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] px-3 py-1.5 rounded-xl hover:text-white transition-colors">Seated</button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[#1e2a45]">
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Ref #</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Guest</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Time</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Party</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Table</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Status</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Notes</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#1e2a45]">
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4 text-white font-bold text-xs">RES-0241</td>
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">Kavinda Perera</p>
+                                    <p class="text-[#4a5568] text-[11px]">+94 77 123 4567</p>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-white text-xs font-semibold">07:30 PM</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">4 guests</span></td>
+                                <td class="px-5 py-4"><span class="text-white text-xs">Table 06</span></td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Confirmed</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#4a5568] text-[11px]">Anniversary</span></td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-emerald-400 hover:border-emerald-500 transition-all"
+                                            title="Seat">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"
+                                            title="Edit">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all"
+                                            title="Cancel">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M18 6L6 18M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4 text-white font-bold text-xs">RES-0242</td>
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">Nimali Fernando</p>
+                                    <p class="text-[#4a5568] text-[11px]">+94 71 987 6543</p>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-white text-xs font-semibold">08:00 PM</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">2 guests</span></td>
+                                <td class="px-5 py-4"><span class="text-white text-xs">Table 02</span></td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-orange-500/10 text-orange-400 border border-orange-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Pending</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#4a5568] text-[11px]">Window seat pref.</span>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-emerald-400 hover:border-emerald-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M18 6L6 18M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4 text-white font-bold text-xs">RES-0243</td>
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">Ruwan Silva</p>
+                                    <p class="text-[#4a5568] text-[11px]">+94 76 555 0011</p>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-white text-xs font-semibold">08:30 PM</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">6 guests</span></td>
+                                <td class="px-5 py-4"><span class="text-white text-xs">Table 11</span></td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-violet-500/10 text-violet-400 border border-violet-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Seated</span>
+                                </td>
+                                <td class="px-5 py-4"><span class="text-[#4a5568] text-[11px]">Veg menu</span></td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
