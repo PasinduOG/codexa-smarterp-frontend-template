@@ -1,7 +1,8 @@
 <!-- menu.component.html -->
 
-<input id="menu-category-modal-toggle" type="checkbox" class="menu-category-modal-toggle" aria-hidden="true">
-<input id="menu-item-modal-toggle" type="checkbox" class="menu-item-modal-toggle" aria-hidden="true">
+<input id="menu-category-modal-toggle" type="checkbox" class="menu-category-modal-toggle">
+<input id="menu-item-modal-toggle" type="checkbox" class="menu-item-modal-toggle">
+<input id="menu-recipe-modal-toggle" type="checkbox" class="menu-recipe-modal-toggle">
 
 <div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
 
@@ -123,8 +124,8 @@
                             <div class="flex items-center gap-2">
                                 <button
                                     class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-blue-500 text-[#6b7a99] hover:text-blue-400 text-xs font-medium py-2 rounded-xl transition-all">Edit</button>
-                                <button
-                                    class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all">Recipe</button>
+                                <label for="menu-recipe-modal-toggle"
+                                    class="flex-1 flex items-center justify-center bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all cursor-pointer">Recipe</label>
                                 <button
                                     class="w-8 h-8 rounded-xl bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -172,8 +173,8 @@
                             <div class="flex items-center gap-2">
                                 <button
                                     class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-blue-500 text-[#6b7a99] hover:text-blue-400 text-xs font-medium py-2 rounded-xl transition-all">Edit</button>
-                                <button
-                                    class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all">Recipe</button>
+                                <label for="menu-recipe-modal-toggle"
+                                    class="flex-1 flex items-center justify-center bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all cursor-pointer">Recipe</label>
                                 <button
                                     class="w-8 h-8 rounded-xl bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -221,8 +222,8 @@
                             <div class="flex items-center gap-2">
                                 <button
                                     class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-blue-500 text-[#6b7a99] hover:text-blue-400 text-xs font-medium py-2 rounded-xl transition-all">Edit</button>
-                                <button
-                                    class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all">Recipe</button>
+                                <label for="menu-recipe-modal-toggle"
+                                    class="flex-1 flex items-center justify-center bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-orange-400 text-xs font-medium py-2 rounded-xl transition-all cursor-pointer">Recipe</label>
                                 <button
                                     class="w-8 h-8 rounded-xl bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -394,12 +395,14 @@
         </div>
         <div class="p-5 space-y-4">
             <div>
-                <label class="block text-[#6b7a99] text-xs font-medium mb-2" for="menu-category-name">Category Name *</label>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2" for="menu-category-name">Category Name
+                    *</label>
                 <input id="menu-category-name" type="text" placeholder="e.g. Rice & Noodles"
                     class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
             </div>
             <div>
-                <label class="block text-[#6b7a99] text-xs font-medium mb-2" for="menu-category-description">Description</label>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2"
+                    for="menu-category-description">Description</label>
                 <textarea id="menu-category-description" rows="2" placeholder="Optional category description"
                     class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 resize-none"></textarea>
             </div>
@@ -542,3 +545,112 @@
         </div>
     </div>
 </div>
+
+<!-- ============================================================ -->
+<!-- 5. RECIPE EDITOR MODAL -->
+<!-- ============================================================ -->
+<section class="menu-recipe-modal" aria-hidden="true">
+    <label for="menu-recipe-modal-toggle" class="menu-recipe-modal__backdrop"
+        aria-label="Close recipe editor modal"></label>
+
+    <div class="menu-recipe-modal__dialog bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl"
+        aria-labelledby="menu-recipe-modal-title">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1e2a45]">
+            <div>
+                <h3 id="menu-recipe-modal-title" class="text-white font-bold text-sm">Recipe Editor — Grilled Chicken</h3>
+                <p class="text-[#4a5568] text-xs">Manage ingredients used in this dish</p>
+            </div>
+            <label for="menu-recipe-modal-toggle"
+                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+        <div class="p-5 space-y-4">
+            <!-- Existing recipe ingredients -->
+            <div class="space-y-2">
+                <div class="flex items-center gap-3 bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                    <div class="flex-1">
+                        <p class="text-white text-xs font-semibold">Chicken Breast</p>
+                        <p class="text-[#4a5568] text-[11px]">Ingredient ID: 1</p>
+                    </div>
+                    <input type="number" value="0.5"
+                        class="w-16 bg-[#0d1220] border border-[#1e2a45] text-white text-xs rounded-lg px-2 py-1.5 text-center focus:outline-none focus:border-orange-500" />
+                    <select
+                        class="bg-[#0d1220] border border-[#1e2a45] text-white text-xs rounded-lg px-2 py-1.5 focus:outline-none focus:border-orange-500">
+                        <option>kg</option>
+                        <option>g</option>
+                        <option>litre</option>
+                        <option>ml</option>
+                        <option>pcs</option>
+                    </select>
+                    <button
+                        class="w-6 h-6 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-colors">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center gap-3 bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                    <div class="flex-1">
+                        <p class="text-white text-xs font-semibold">Fresh Herbs Mix</p>
+                        <p class="text-[#4a5568] text-[11px]">Ingredient ID: 12</p>
+                    </div>
+                    <input type="number" value="15"
+                        class="w-16 bg-[#0d1220] border border-[#1e2a45] text-white text-xs rounded-lg px-2 py-1.5 text-center focus:outline-none focus:border-orange-500" />
+                    <select
+                        class="bg-[#0d1220] border border-[#1e2a45] text-white text-xs rounded-lg px-2 py-1.5 focus:outline-none focus:border-orange-500">
+                        <option>g</option>
+                        <option>kg</option>
+                        <option>litre</option>
+                        <option>ml</option>
+                        <option>pcs</option>
+                    </select>
+                    <button
+                        class="w-6 h-6 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-colors">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Add new ingredient row -->
+            <div class="border border-dashed border-[#1e2a45] rounded-xl p-4 space-y-3">
+                <p class="text-[#4a5568] text-xs font-medium">Add Ingredient</p>
+                <div class="flex items-center gap-3">
+                    <select
+                        class="flex-1 bg-[#1a2338] border border-[#1e2a45] text-white text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-orange-500">
+                        <option>Select ingredient...</option>
+                        <option>Chicken Breast (kg)</option>
+                        <option>Tiger Prawns (kg)</option>
+                        <option>Basmati Rice (kg)</option>
+                        <option>Fresh Milk (litre)</option>
+                        <option>Olive Oil (litre)</option>
+                    </select>
+                    <input type="number" placeholder="Qty"
+                        class="w-20 bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-xs rounded-xl px-3 py-2.5 focus:outline-none focus:border-orange-500" />
+                    <select
+                        class="bg-[#1a2338] border border-[#1e2a45] text-white text-xs rounded-xl px-2.5 py-2.5 focus:outline-none focus:border-orange-500">
+                        <option>kg</option>
+                        <option>g</option>
+                        <option>litre</option>
+                        <option>ml</option>
+                        <option>pcs</option>
+                    </select>
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition-colors">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2 px-6 pb-6">
+            <label for="menu-recipe-modal-toggle"
+                class="flex-1 text-center bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] text-sm font-medium py-2.5 rounded-xl hover:text-white transition-all cursor-pointer">Cancel</label>
+            <button
+                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-colors">Save
+                Recipe</button>
+        </div>
+    </div>
+</section>
