@@ -1,0 +1,340 @@
+<!-- settings.component.html -->
+
+<input id="campaign-message-modal-toggle" type="checkbox" class="campaign-message-modal-toggle" aria-hidden="true">
+
+<div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <div class="sm:ml-64 flex-1 flex overflow-hidden">
+
+        <!-- Settings Content -->
+        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+            <div>
+                <h1 class="text-white font-bold text-base">Email Scheduler</h1>
+                <p class="text-[#4a5568] text-xs mt-0.5">Configure automated email sending schedule and templates</p>
+            </div>
+
+            <!-- Email Scheduler Config -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-6">
+                <h2 class="text-white font-semibold text-sm mb-5 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                    Daily Email Schedule
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Send Time</label>
+                        <input type="time" value="09:00"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                        <p class="text-[#4a5568] text-[11px] mt-1.5">Emails will be sent daily at this time</p>
+                    </div>
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Timezone</label>
+                        <select
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                            <option>Asia/Colombo (UTC+5:30)</option>
+                            <option>UTC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors">Save
+                        Schedule</button>
+                </div>
+            </div>
+
+            <!-- Automated Messages -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-[#1e2a45]">
+                    <div>
+                        <h2 class="text-white font-semibold text-sm">Automated Messages</h2>
+                        <p class="text-[#4a5568] text-xs">Manage triggered email/SMS templates</p>
+                    </div>
+                    <label for="campaign-message-modal-toggle"
+                        class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold px-3 py-2 rounded-xl transition-colors cursor-pointer">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 4v16m8-8H4" />
+                        </svg>New Message
+                    </label>
+                </div>
+                <div class="divide-y divide-[#1e2a45]">
+                    <!-- Message Row -->
+                    <div class="flex items-center justify-between px-6 py-4 hover:bg-[#1a2338]/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Birthday Offer Email</p>
+                                <p class="text-[#4a5568] text-xs">Trigger: customer_birthday · 25% discount</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Active</span>
+                            <!-- Toggle -->
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div
+                                    class="w-9 h-5 bg-[#1a2338] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                                </div>
+                            </label>
+                            <label for="campaign-message-modal-toggle"
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                    class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg></label>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-6 py-4 hover:bg-[#1a2338]/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-pink-400" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Anniversary Email</p>
+                                <p class="text-[#4a5568] text-xs">Trigger: customer_anniversary · 20% discount</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Active</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer">
+                                <div
+                                    class="w-9 h-5 bg-[#1a2338] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                                </div>
+                            </label>
+                            <label for="campaign-message-modal-toggle"
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                    class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg></label>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-6 py-4 hover:bg-[#1a2338]/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Promotional Offer</p>
+                                <p class="text-[#4a5568] text-xs">Trigger: promotional · 15% discount</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="bg-[#1a2338] text-[#6b7a99] border border-[#1e2a45] text-xs font-medium px-2.5 py-1 rounded-full">Inactive</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer">
+                                <div
+                                    class="w-9 h-5 bg-[#1a2338] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                                </div>
+                            </label>
+                            <label for="campaign-message-modal-toggle"
+                                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                    class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Send to All -->
+                <div class="px-6 py-4 bg-[#1a2338]/30 border-t border-[#1e2a45] flex items-center justify-between">
+                    <div>
+                        <p class="text-white text-sm font-semibold">Bulk Send to All Customers</p>
+                        <p class="text-[#4a5568] text-xs">Trigger all active automated messages immediately</p>
+                    </div>
+                    <button
+                        class="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 hover:bg-orange-500/20 text-orange-400 text-sm font-bold px-4 py-2 rounded-xl transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>Send to All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Order Types config -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-6">
+                <h2 class="text-white font-semibold text-sm mb-5">Order Types</h2>
+                <div class="space-y-3">
+                    <div
+                        class="flex items-center justify-between bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                                <svg class="w-3.5 h-3.5 text-orange-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M3 10h18M3 14h18M10 4v16M14 4v16" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">Dine In</p>
+                                <p class="text-[#4a5568] text-[11px]">table_order</p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked
+                                class="sr-only peer">
+                            <div
+                                class="w-9 h-5 bg-[#0a0e1a] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                            </div>
+                        </label>
+                    </div>
+                    <div
+                        class="flex items-center justify-between bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                                <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path
+                                        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">Takeout</p>
+                                <p class="text-[#4a5568] text-[11px]">takeout</p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked
+                                class="sr-only peer">
+                            <div
+                                class="w-9 h-5 bg-[#0a0e1a] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                            </div>
+                        </label>
+                    </div>
+                    <div
+                        class="flex items-center justify-between bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-semibold">Delivery</p>
+                                <p class="text-[#4a5568] text-[11px]">delivery</p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox"
+                                class="sr-only peer">
+                            <div
+                                class="w-9 h-5 bg-[#0a0e1a] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full peer-checked:border-orange-500 transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Modals -->
+
+<!-- ============================================================ -->
+<!-- 13. AUTOMATED MESSAGE EDIT MODAL -->
+<!-- ============================================================ -->
+<section class="campaign-message-modal" aria-hidden="true">
+    <label for="campaign-message-modal-toggle" class="campaign-message-modal__backdrop"
+        aria-label="Close automated message modal"></label>
+
+    <div class="campaign-message-modal__dialog bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl"
+        role="dialog" aria-modal="true" aria-labelledby="campaign-message-modal-title">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-[#1e2a45]">
+            <div>
+                <h3 id="campaign-message-modal-title" class="text-white font-bold text-sm">Edit Automated Message</h3>
+                <p class="text-[#4a5568] text-xs">Trigger: customer_birthday</p>
+            </div>
+            <label for="campaign-message-modal-toggle"
+                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+        <div class="p-5 space-y-4">
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Trigger Type</label>
+                <select
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    <option>customer_birthday</option>
+                    <option>customer_anniversary</option>
+                    <option>promotional</option>
+                    <option>inactive_customer</option>
+                    <option>order_completed</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Email Subject</label>
+                <input type="text" value="Happy Birthday! 🎂 Enjoy 25% off"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Message Body</label>
+                <textarea rows="4"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 resize-none">Dear {customerName},
+
+Wishing you a very Happy Birthday! 🎂
+
+As a valued guest of Restora, enjoy 25% off your next dining experience. Use code BDAY25 — valid until {expiryDate}.
+
+See you soon!</textarea>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Discount %</label>
+                    <input type="number" value="25"
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Template Type</label>
+                    <select
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                        <option>birthday</option>
+                        <option>anniversary</option>
+                        <option>promotional</option>
+                        <option>campaign</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2 px-5 pb-5">
+            <label for="campaign-message-modal-toggle"
+                class="flex-1 text-center bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] text-sm font-medium py-2.5 rounded-xl hover:text-white transition-all cursor-pointer">Cancel</label>
+            <button
+                class="flex-1 bg-[#1a2338] border border-orange-500/40 text-orange-400 text-sm font-medium py-2.5 rounded-xl hover:bg-orange-500/10 transition-all">Send
+                Test</button>
+            <button
+                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-colors">Save
+                Changes</button>
+        </div>
+    </div>
+</section>

@@ -1,10 +1,10 @@
-.reservation-modal-toggle {
+.campaign-message-modal-toggle {
 	position: fixed;
 	opacity: 0;
 	pointer-events: none;
 }
 
-.reservation-modal {
+.campaign-message-modal {
 	position: fixed;
 	inset: 0;
 	display: flex;
@@ -18,23 +18,20 @@
 	z-index: 60;
 }
 
-#booking-step-1:checked ~ .reservation-modal--step-1,
-#booking-step-2:checked ~ .reservation-modal--step-2,
-#booking-step-3:checked ~ .reservation-modal--step-3,
-#booking-step-4:checked ~ .reservation-modal--step-4 {
+.campaign-message-modal-toggle:checked ~ .campaign-message-modal {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
 }
 
-.reservation-modal__backdrop {
+.campaign-message-modal__backdrop {
 	position: absolute;
 	inset: 0;
 	background: rgba(4, 10, 22, 0.72);
 	backdrop-filter: blur(3px);
 }
 
-.reservation-modal__dialog {
+.campaign-message-modal__dialog {
 	position: relative;
 	width: min(44rem, 100%);
 	max-height: calc(100vh - 2rem);

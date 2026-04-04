@@ -1,297 +1,509 @@
+<!-- pos-new-order.component.html -->
+<!-- POS Order Placing: Menu Browse (left) + Order Cart (right) -->
+
 <div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+    <!-- Main: Menu Browser + Cart side-by-side -->
+    <div class="sm:ml-64 flex-1 flex overflow-hidden">
 
-    <!-- Main -->
-    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+        <!-- LEFT: Menu Browser -->
+        <div class="flex-1 flex flex-col overflow-hidden border-r border-[#1e2a45]">
 
-        <!-- Topbar -->
-        <header class="bg-[#0d1220] border-b border-[#1e2a45] px-6 py-3.5 flex items-center justify-between shrink-0">
-            <div>
-                <h1 class="text-white font-bold text-base">POS Orders</h1>
-                <p class="text-[#4a5568] text-xs">Manage and track all orders</p>
+            <!-- Top bar -->
+            <div class="bg-[#0d1220] border-b border-[#1e2a45] px-5 py-3 flex items-center gap-3 shrink-0">
+                <div class="flex-1">
+                    <h1 class="text-white font-bold">New Order</h1>
+                    <p class="text-[#4a5568] text-xs">Select items for the order</p>
+                </div>
+                <!-- Order type selector -->
+                <div class="flex items-center gap-1.5 bg-[#1a2338] border border-[#1e2a45] rounded-xl p-1">
+                    <button class="bg-orange-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg">Dine
+                        In</button>
+                    <button
+                        class="text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors">Takeout</button>
+                    <button
+                        class="text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors">Delivery</button>
+                </div>
             </div>
-            <button
-                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M12 4v16m8-8H4" />
-                </svg>
-                New Order
-            </button>
-        </header>
 
-        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+            <!-- Order info row -->
+            <div class="bg-[#0d1220] border-b border-[#1e2a45] px-5 py-2.5 flex items-center gap-4 shrink-0">
+                <!-- Table select -->
+                <div class="flex items-center gap-2">
+                    <label class="text-[#4a5568] text-xs">Table:</label>
+                    <select
+                        class="bg-[#1a2338] border border-[#1e2a45] text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-orange-500">
+                        <option>Select table</option>
+                        <option>Table 01 (4 pax)</option>
+                        <option>Table 02 (2 pax)</option>
+                        <option>Table 05 (4 pax)</option>
+                        <option>Table 08 (2 pax)</option>
+                        <option>Table 13 (2 pax)</option>
+                    </select>
+                </div>
+                <!-- Customer select -->
+                <div class="flex items-center gap-2">
+                    <label class="text-[#4a5568] text-xs">Customer:</label>
+                    <div class="relative">
+                        <input type="text" placeholder="Search customer..."
+                            class="bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-xs rounded-lg pl-2.5 pr-8 py-1.5 focus:outline-none focus:border-orange-500 w-44">
+                        <svg class="absolute right-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-[#4a5568]" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- Waiter -->
+                <div class="flex items-center gap-2">
+                    <label class="text-[#4a5568] text-xs">Waiter:</label>
+                    <select
+                        class="bg-[#1a2338] border border-[#1e2a45] text-white text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-orange-500">
+                        <option>Sachini (W-01)</option>
+                        <option>Dinesh (W-02)</option>
+                        <option>Priya (W-03)</option>
+                    </select>
+                </div>
+            </div>
 
-            <!-- Filters + Search Bar -->
-            <div class="flex flex-col sm:flex-row gap-3">
-                <div class="relative flex-1">
-                    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4a5568]" fill="none"
+            <!-- Category filter + Search -->
+            <div class="bg-[#0a0e1a] px-5 py-3 flex items-center gap-3 shrink-0 border-b border-[#1e2a45]">
+                <div class="relative flex-1 max-w-xs">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#4a5568]" fill="none"
                         stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <circle cx="11" cy="11" r="8" />
                         <path d="M21 21l-4.35-4.35" />
                     </svg>
-                    <input type="text" placeholder="Search by order #, table, or customer..."
-                        class="w-full bg-[#0d1220] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-orange-500 transition-colors">
+                    <input type="text" placeholder="Search items..."
+                        class="w-full bg-[#0d1220] border border-[#1e2a45] text-white placeholder-[#4a5568] text-xs rounded-xl pl-8 pr-3 py-2 focus:outline-none focus:border-orange-500">
                 </div>
-                <div class="flex gap-2">
-                    <select
-                        class="bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-orange-500">
-                        <option>All Status</option>
-                        <option>Pending</option>
-                        <option>In Progress</option>
-                        <option>Completed</option>
-                        <option>Cancelled</option>
-                    </select>
-                    <select
-                        class="bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] text-sm rounded-xl px-3 py-2.5 focus:outline-none focus:border-orange-500">
-                        <option>All Types</option>
-                        <option>Dine In</option>
-                        <option>Takeout</option>
-                        <option>Delivery</option>
-                    </select>
+                <div class="flex gap-1.5 overflow-x-auto">
+                    <button
+                        class="shrink-0 bg-orange-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full">All</button>
+                    <button
+                        class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">Starters</button>
+                    <button
+                        class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">Main
+                        Course</button>
+                    <button
+                        class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">Rice
+                        & Noodles</button>
+                    <button
+                        class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">Desserts</button>
+                    <button
+                        class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">Beverages</button>
                 </div>
             </div>
 
-            <!-- Status Tabs -->
-            <div class="flex gap-2 overflow-x-auto pb-1">
-                <button
-                    class="shrink-0 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full">All
-                    (142)</button>
-                <button
-                    class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">Open
-                    (12)</button>
-                <button
-                    class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">Pending
-                    (8)</button>
-                <button
-                    class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">In
-                    Progress (4)</button>
-                <button
-                    class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">Completed
-                    (116)</button>
-                <button
-                    class="shrink-0 bg-[#0d1220] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">Cancelled
-                    (2)</button>
-            </div>
+            <!-- Menu Items Grid -->
+            <div class="flex-1 overflow-y-auto p-4">
+                <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
 
-            <!-- Orders Table -->
-            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead>
-                            <tr class="border-b border-[#1e2a45]">
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Order #</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Table / Type</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Customer</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Items</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Total</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Status</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Time</th>
-                                <th
-                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
-                                    Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-[#1e2a45]">
-
-                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
-                                <td class="px-5 py-4"><span class="text-white font-bold">#ORD-1042</span></td>
-                                <td class="px-5 py-4">
-                                    <div><span class="text-white font-medium text-xs">Table 04</span></div>
-                                    <span class="text-[#4a5568] text-[11px]">Dine In</span>
-                                </td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div
-                                            class="w-7 h-7 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 text-2xs font-bold">
-                                            KP</div>
-                                        <span class="text-white text-xs">Kavinda P.</span>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">4 items</span></td>
-                                <td class="px-5 py-4"><span class="text-white font-semibold">Rs. 2,450</span></td>
-                                <td class="px-5 py-4"><span
-                                        class="bg-orange-500/10 text-orange-400 border border-orange-500/20 text-xs font-medium px-2.5 py-1 rounded-full">In
-                                        Progress</span></td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">2m ago</span></td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-blue-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
-                                <td class="px-5 py-4"><span class="text-white font-bold">#ORD-1041</span></td>
-                                <td class="px-5 py-4">
-                                    <div><span class="text-white font-medium text-xs">Table 07</span></div>
-                                    <span class="text-[#4a5568] text-[11px]">Dine In</span>
-                                </td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div
-                                            class="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xs font-bold">
-                                            NF</div>
-                                        <span class="text-white text-xs">Nimali F.</span>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">2 items</span></td>
-                                <td class="px-5 py-4"><span class="text-white font-semibold">Rs. 1,890</span></td>
-                                <td class="px-5 py-4"><span
-                                        class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Pending</span>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">5m ago</span></td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-blue-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
-                                <td class="px-5 py-4"><span class="text-white font-bold">#ORD-1040</span></td>
-                                <td class="px-5 py-4">
-                                    <div><span class="text-white font-medium text-xs">Takeout</span></div>
-                                    <span class="text-[#4a5568] text-[11px]">Takeout</span>
-                                </td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div
-                                            class="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 text-2xs font-bold">
-                                            RS</div>
-                                        <span class="text-white text-xs">Ruwan S.</span>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">1 item</span></td>
-                                <td class="px-5 py-4"><span class="text-white font-semibold">Rs. 760</span></td>
-                                <td class="px-5 py-4"><span
-                                        class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Completed</span>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">12m ago</span></td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
-                                <td class="px-5 py-4"><span class="text-white font-bold">#ORD-1039</span></td>
-                                <td class="px-5 py-4">
-                                    <div><span class="text-white font-medium text-xs">Table 02</span></div>
-                                    <span class="text-[#4a5568] text-[11px]">Dine In</span>
-                                </td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <div
-                                            class="w-7 h-7 rounded-lg bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-violet-400 text-2xs font-bold">
-                                            AS</div>
-                                        <span class="text-white text-xs">Amali S.</span>
-                                    </div>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">6 items</span></td>
-                                <td class="px-5 py-4"><span class="text-white font-semibold">Rs. 3,210</span></td>
-                                <td class="px-5 py-4"><span
-                                        class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Cancelled</span>
-                                </td>
-                                <td class="px-5 py-4"><span class="text-[#6b7a99] text-xs">20m ago</span></td>
-                                <td class="px-5 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <button
-                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Pagination -->
-                <div class="px-5 py-4 border-t border-[#1e2a45] flex items-center justify-between">
-                    <p class="text-[#4a5568] text-xs">Showing 1–10 of 142 orders</p>
-                    <div class="flex items-center gap-1">
-                        <button
-                            class="w-8 h-8 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path d="M15 18l-6-6 6-6" />
+                    <!-- Menu Item Card -->
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-orange-500/15 to-red-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-orange-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
                             </svg>
-                        </button>
-                        <button class="w-8 h-8 rounded-lg bg-orange-500 text-white text-xs font-bold">1</button>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Grilled Chicken</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Main Course</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 550</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none focus:border-orange-500">
+                                    <option>Half</option>
+                                    <option>Full</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-blue-500/15 to-violet-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-blue-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Devilled Prawns</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Starters</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 780</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Half</option>
+                                    <option>Full</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-teal-500/15 to-emerald-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-teal-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Vegetable Kottu</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Rice & Noodles</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 350</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Half</option>
+                                    <option>Full</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-violet-500/15 to-pink-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-violet-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Lamb Curry</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Main Course</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 950</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Half</option>
+                                    <option>Full</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-yellow-500/15 to-orange-400/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-yellow-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Fried Rice</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Rice & Noodles</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 380</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Half</option>
+                                    <option>Full</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-cyan-500/15 to-blue-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-cyan-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Pasta Alfredo</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Main Course</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 720</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Regular</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-rose-500/15 to-pink-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-rose-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Chocolate Lava Cake</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Desserts</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 420</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>1 pc</option>
+                                    <option>2 pcs</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group">
+                        <div
+                            class="h-24 bg-gradient-to-br from-lime-500/15 to-green-500/15 flex items-center justify-center relative">
+                            <svg class="w-10 h-10 text-lime-400/25" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z" />
+                            </svg>
+                            <button
+                                class="absolute bottom-2 right-2 w-7 h-7 bg-orange-500 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-orange-600 shadow-lg">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-white font-semibold text-xs mb-1">Fresh Lime Juice</p>
+                            <p class="text-[#4a5568] text-[10px] mb-2">Beverages</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-[#4a5568] text-[9px]">From</p>
+                                    <p class="text-orange-400 text-xs font-bold">Rs. 180</p>
+                                </div>
+                                <select
+                                    class="bg-[#1a2338] border border-[#1e2a45] text-white text-[10px] rounded-lg px-1.5 py-1 focus:outline-none">
+                                    <option>Glass</option>
+                                    <option>Jug</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Order Cart -->
+        <div class="w-80 shrink-0 flex flex-col bg-[#0d1220]">
+            <div class="px-5 py-3.5 border-b border-[#1e2a45]">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-white font-bold text-sm">Current Order</h2>
+                    <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3 items</span>
+                </div>
+                <p class="text-[#4a5568] text-xs mt-0.5">Table 04 · Dine In · Kavinda P.</p>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-3">
+
+                <div class="bg-[#1a2338] border border-[#1e2a45] rounded-xl p-3">
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex-1">
+                            <p class="text-white text-xs font-semibold">Grilled Chicken</p>
+                            <p class="text-[#4a5568] text-[11px]">Full portion</p>
+                        </div>
                         <button
-                            class="w-8 h-8 rounded-lg bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium transition-all">2</button>
-                        <button
-                            class="w-8 h-8 rounded-lg bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium transition-all">3</button>
-                        <span class="text-[#4a5568] text-xs px-1">...</span>
-                        <button
-                            class="w-8 h-8 rounded-lg bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] hover:text-white text-xs font-medium transition-all">15</button>
-                        <button
-                            class="w-8 h-8 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                            class="w-5 h-5 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-colors">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5"
                                 viewBox="0 0 24 24">
-                                <path d="M9 18l6-6-6-6" />
+                                <path d="M18 6L6 18M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">−</button>
+                            <span class="text-white text-sm font-bold w-4 text-center">2</span>
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">+</button>
+                        </div>
+                        <span class="text-orange-400 text-xs font-bold">Rs. 1,960</span>
+                    </div>
+                    <input type="text" placeholder="Add note (e.g. no chili)..."
+                        class="mt-2 w-full bg-[#0d1220] border border-[#1e2a45] text-white placeholder-[#4a5568] text-[11px] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-orange-500">
+                </div>
+
+                <div class="bg-[#1a2338] border border-[#1e2a45] rounded-xl p-3">
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex-1">
+                            <p class="text-white text-xs font-semibold">Fried Rice</p>
+                            <p class="text-[#4a5568] text-[11px]">Large</p>
+                        </div>
+                        <button
+                            class="w-5 h-5 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-colors">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">−</button>
+                            <span class="text-white text-sm font-bold w-4 text-center">1</span>
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">+</button>
+                        </div>
+                        <span class="text-orange-400 text-xs font-bold">Rs. 450</span>
+                    </div>
+                </div>
+
+                <div class="bg-[#1a2338] border border-[#1e2a45] rounded-xl p-3">
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex-1">
+                            <p class="text-white text-xs font-semibold">Fresh Lime Juice</p>
+                            <p class="text-[#4a5568] text-[11px]">Glass</p>
+                        </div>
+                        <button
+                            class="w-5 h-5 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition-colors">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">−</button>
+                            <span class="text-white text-sm font-bold w-4 text-center">2</span>
+                            <button
+                                class="w-6 h-6 rounded-lg bg-[#0d1220] border border-[#1e2a45] flex items-center justify-center text-white hover:border-orange-500 transition-colors text-xs font-bold">+</button>
+                        </div>
+                        <span class="text-orange-400 text-xs font-bold">Rs. 360</span>
+                    </div>
+                </div>
+
+                <!-- Order Notes -->
+                <div>
+                    <label class="text-[#4a5568] text-xs font-medium mb-1.5 block">Order Notes</label>
+                    <textarea rows="2" placeholder="Special instructions for the kitchen..."
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-orange-500 resize-none"></textarea>
                 </div>
             </div>
 
-        </main>
+            <!-- Order Summary + Place Order -->
+            <div class="p-4 border-t border-[#1e2a45] space-y-3">
+                <div class="space-y-1.5">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#6b7a99]">Subtotal</span>
+                        <span class="text-white">Rs. 2,770</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#6b7a99]">Tax (10%)</span>
+                        <span class="text-white">Rs. 277</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#6b7a99]">Service Charge (5%)</span>
+                        <span class="text-white">Rs. 138</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#6b7a99]">Discount</span>
+                        <span class="text-emerald-400">− Rs. 0</span>
+                    </div>
+                </div>
+                <div class="h-px bg-[#1e2a45]"></div>
+                <div class="flex items-center justify-between">
+                    <span class="text-white font-bold text-sm">Total</span>
+                    <span class="text-orange-400 font-bold text-lg">Rs. 3,185</span>
+                </div>
+                <div class="flex gap-2">
+                    <button
+                        class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-red-500 text-[#6b7a99] hover:text-red-400 text-xs font-medium py-2.5 rounded-xl transition-all">Clear</button>
+                    <button
+                        class="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-xs font-bold py-2.5 rounded-xl transition-all shadow-lg shadow-orange-900/30">
+                        Place Order 🚀
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

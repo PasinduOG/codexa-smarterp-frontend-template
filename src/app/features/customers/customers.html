@@ -1,5 +1,8 @@
 <!-- customers.component.html -->
 
+<input id="customer-modal-toggle" type="checkbox" class="customer-modal-toggle" aria-hidden="true">
+<input id="customer-profile-drawer-toggle" type="checkbox" class="customer-profile-drawer-toggle" aria-hidden="true">
+
 <div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
 
     <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
@@ -10,13 +13,13 @@
                 <h1 class="text-white font-bold text-base">Customers</h1>
                 <p class="text-[#4a5568] text-xs">CRM — Customer profiles and loyalty</p>
             </div>
-            <button
-                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
+            <label for="customer-modal-toggle"
+                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M12 4v16m8-8H4" />
                 </svg>
                 Add Customer
-            </button>
+            </label>
         </header>
 
         <main class="flex-1 overflow-y-auto p-6 space-y-5">
@@ -98,14 +101,14 @@
                     <div class="flex items-center justify-between">
                         <span class="text-[#4a5568] text-[11px]">Last visit: 2 days ago</span>
                         <div class="flex gap-2">
-                            <button
+                            <label for="customer-profile-drawer-toggle"
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
                                     viewBox="0 0 24 24">
                                     <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                                 </svg>
-                            </button>
+                            </label>
                             <button
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -150,14 +153,14 @@
                     <div class="flex items-center justify-between">
                         <span class="text-[#4a5568] text-[11px]">Last visit: Today</span>
                         <div class="flex gap-2">
-                            <button
+                            <label for="customer-profile-drawer-toggle"
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
                                     viewBox="0 0 24 24">
                                     <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                                 </svg>
-                            </button>
+                            </label>
                             <button
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -203,14 +206,14 @@
                     <div class="flex items-center justify-between">
                         <span class="text-[#4a5568] text-[11px]">Last visit: 1 week ago</span>
                         <div class="flex gap-2">
-                            <button
+                            <label for="customer-profile-drawer-toggle"
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
                                     viewBox="0 0 24 24">
                                     <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                                 </svg>
-                            </button>
+                            </label>
                             <button
                                 class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
@@ -226,4 +229,178 @@
 
         </main>
     </div>
-</div>\
+</div>
+
+<!-- ============================================================ -->
+<!-- 9. ADD / EDIT CUSTOMER MODAL -->
+<!-- ============================================================ -->
+<section class="customer-modal" aria-hidden="true">
+    <label for="customer-modal-toggle" class="customer-modal__backdrop" aria-label="Close customer modal"></label>
+
+    <div class="customer-modal__dialog bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl" role="dialog"
+        aria-modal="true" aria-labelledby="customer-modal-title">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1e2a45]">
+            <h3 id="customer-modal-title" class="text-white font-bold text-sm">Add Customer</h3>
+            <label for="customer-modal-toggle"
+                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+        <div class="p-5 grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">First Name *</label>
+                <input type="text" placeholder="First name"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Last Name *</label>
+                <input type="text" placeholder="Last name"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Phone *</label>
+                <input type="tel" placeholder="0771234567"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Email</label>
+                <input type="email" placeholder="Optional"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Birthday</label>
+                <input type="date"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Preferred Language</label>
+                <select
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    <option>Sinhala</option>
+                    <option>English</option>
+                    <option>Tamil</option>
+                </select>
+            </div>
+            <div class="col-span-2">
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Address</label>
+                <input type="text" placeholder="Full address"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+            <div class="col-span-2">
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Dietary Notes</label>
+                <textarea rows="2" placeholder="e.g. vegetarian, nut allergy..."
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 resize-none"></textarea>
+            </div>
+            <div class="col-span-2 flex gap-4">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked
+                        class="accent-orange-500" /><span class="text-[#6b7a99] text-xs">Email
+                        communication</span></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox"
+                        class="accent-orange-500" /><span class="text-[#6b7a99] text-xs">SMS
+                        communication</span></label>
+            </div>
+        </div>
+        <div class="flex gap-2 px-6 pb-6">
+            <label for="customer-modal-toggle"
+                class="flex-1 text-center bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] text-sm font-medium py-2.5 rounded-xl hover:text-white transition-all cursor-pointer">Cancel</label>
+            <button
+                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-colors">Save
+                Customer</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. CUSTOMER PROFILE DRAWER / PANEL -->
+<!-- ============================================================ -->
+<section class="customer-profile-drawer" aria-hidden="true">
+    <label for="customer-profile-drawer-toggle" class="customer-profile-drawer__backdrop"
+        aria-label="Close customer profile drawer"></label>
+
+    <div class="customer-profile-drawer__panel bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-[#1e2a45]">
+            <h3 class="text-white font-bold text-sm">Customer Profile</h3>
+            <label for="customer-profile-drawer-toggle"
+                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+        <div class="p-5 space-y-5">
+            <!-- Avatar + name -->
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-lg">
+                    KP</div>
+                <div>
+                    <p class="text-white font-bold">Kavinda Perera</p>
+                    <p class="text-[#4a5568] text-xs">+94 77 123 4567</p>
+                    <p class="text-[#4a5568] text-xs">kavinda@email.com</p>
+                </div>
+            </div>
+            <!-- Stats grid -->
+            <div class="grid grid-cols-3 gap-2">
+                <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                    <p class="text-white text-sm font-bold">24</p>
+                    <p class="text-[#4a5568] text-[9px]">Visits</p>
+                </div>
+                <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                    <p class="text-orange-400 text-sm font-bold">580</p>
+                    <p class="text-[#4a5568] text-[9px]">Points</p>
+                </div>
+                <div class="bg-[#1a2338] rounded-xl p-2.5 text-center">
+                    <p class="text-emerald-400 text-sm font-bold">Rs.12k</p>
+                    <p class="text-[#4a5568] text-[9px]">Lifetime</p>
+                </div>
+            </div>
+            <!-- Info rows -->
+            <div class="space-y-2">
+                <div class="flex items-center justify-between py-1.5 border-b border-[#1e2a45]">
+                    <span class="text-[#4a5568] text-xs">Birthday</span>
+                    <span class="text-white text-xs">April 12, 1990</span>
+                </div>
+                <div class="flex items-center justify-between py-1.5 border-b border-[#1e2a45]">
+                    <span class="text-[#4a5568] text-xs">Last Visit</span>
+                    <span class="text-white text-xs">2 days ago</span>
+                </div>
+                <div class="flex items-center justify-between py-1.5 border-b border-[#1e2a45]">
+                    <span class="text-[#4a5568] text-xs">Dietary</span>
+                    <span class="text-white text-xs">No restrictions</span>
+                </div>
+                <div class="flex items-center justify-between py-1.5">
+                    <span class="text-[#4a5568] text-xs">Language</span>
+                    <span class="text-white text-xs">Sinhala</span>
+                </div>
+            </div>
+            <!-- Recent orders -->
+            <div>
+                <p class="text-[#6b7a99] text-xs font-semibold uppercase tracking-wider mb-2">Recent Orders</p>
+                <div class="space-y-1.5">
+                    <div class="flex items-center justify-between bg-[#1a2338] rounded-xl px-3 py-2">
+                        <span class="text-white text-xs font-semibold">#ORD-1042</span>
+                        <span class="text-orange-400 text-xs font-bold">Rs. 2,450</span>
+                        <span class="text-[#4a5568] text-[10px]">2d ago</span>
+                    </div>
+                    <div class="flex items-center justify-between bg-[#1a2338] rounded-xl px-3 py-2">
+                        <span class="text-white text-xs font-semibold">#ORD-1018</span>
+                        <span class="text-orange-400 text-xs font-bold">Rs. 3,200</span>
+                        <span class="text-[#4a5568] text-[10px]">1wk ago</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Actions -->
+            <div class="flex gap-2">
+                <button
+                    class="flex-1 bg-[#1a2338] border border-[#1e2a45] hover:border-blue-500 text-[#6b7a99] hover:text-blue-400 text-xs font-medium py-2 rounded-xl transition-all">Edit</button>
+                <button
+                    class="flex-1 bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/20 text-orange-400 text-xs font-medium py-2 rounded-xl transition-all">Send
+                    Email</button>
+            </div>
+        </div>
+    </div>
+</section>

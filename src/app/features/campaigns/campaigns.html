@@ -1,0 +1,326 @@
+<!-- campaigns.component.html -->
+
+<input id="campaign-create-modal-toggle" type="checkbox" class="campaign-create-modal-toggle" aria-hidden="true">
+<input id="campaign-message-modal-toggle" type="checkbox" class="campaign-message-modal-toggle" aria-hidden="true">
+
+<div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+
+        <header class="bg-[#0d1220] border-b border-[#1e2a45] px-6 py-3.5 flex items-center justify-between shrink-0">
+            <div>
+                <h1 class="text-white font-bold text-base">Marketing Campaigns</h1>
+                <p class="text-[#4a5568] text-xs">Email & SMS campaigns management</p>
+            </div>
+            <label for="campaign-create-modal-toggle"
+                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 4v16m8-8H4" />
+                </svg>
+                New Campaign
+            </label>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+
+            <!-- Campaign Stats -->
+            <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Total Campaigns</p>
+                    <p class="text-white text-2xl font-bold">24</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Sent This Month</p>
+                    <p class="text-emerald-400 text-2xl font-bold">8</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Avg Open Rate</p>
+                    <p class="text-orange-400 text-2xl font-bold">34.2%</p>
+                </div>
+                <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-4">
+                    <p class="text-[#6b7a99] text-xs mb-1">Conversions</p>
+                    <p class="text-violet-400 text-2xl font-bold">127</p>
+                </div>
+            </div>
+
+            <!-- Campaigns List -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden">
+                <div class="flex items-center justify-between px-5 py-4 border-b border-[#1e2a45]">
+                    <h2 class="text-white font-semibold text-sm">All Campaigns</h2>
+                    <div class="flex gap-2">
+                        <button
+                            class="text-xs bg-orange-500/10 border border-orange-500/20 text-orange-400 px-3 py-1.5 rounded-xl font-medium">All</button>
+                        <button
+                            class="text-xs bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] px-3 py-1.5 rounded-xl hover:text-white transition-colors">Active</button>
+                        <button
+                            class="text-xs bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] px-3 py-1.5 rounded-xl hover:text-white transition-colors">Draft</button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[#1e2a45]">
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Campaign</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Channel</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Sent</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Opened</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Conversions</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Status</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#1e2a45]">
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">April Weekend Special</p>
+                                    <p class="text-[#4a5568] text-[11px]">Scheduled: Apr 5, 10:00 AM</p>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <span class="flex items-center gap-1.5 text-blue-400 text-xs">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        Email
+                                    </span>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Scheduled</span>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-orange-400 hover:border-orange-500 transition-all"
+                                            title="Send now">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                                            </svg>
+                                        </button>
+                                        <label for="campaign-create-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">Birthday Offers — March</p>
+                                    <p class="text-[#4a5568] text-[11px]">Sent: Mar 31, 09:00 AM</p>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <span class="flex items-center gap-1.5 text-blue-400 text-xs">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                        Email
+                                    </span>
+                                </td>
+                                <td class="px-5 py-4 text-white text-xs font-medium">248</td>
+                                <td class="px-5 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-white text-xs font-medium">38.7%</span>
+                                        <div class="w-12 h-1.5 bg-[#1a2338] rounded-full">
+                                            <div class="h-1.5 bg-emerald-400 rounded-full" style="width:38.7%"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-4 text-white text-xs font-medium">42</td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium px-2.5 py-1 rounded-full">Sent</span>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <label for="campaign-message-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                <circle cx="12" cy="12" r="3" />
+                                            </svg>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <p class="text-white font-medium text-xs">Ramadan Special Offer</p>
+                                    <p class="text-[#4a5568] text-[11px]">Draft — not scheduled</p>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <span class="flex items-center gap-1.5 text-orange-400 text-xs">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                                        </svg>
+                                        SMS
+                                    </span>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">—</td>
+                                <td class="px-5 py-4"><span
+                                        class="bg-[#1a2338] text-[#6b7a99] border border-[#1e2a45] text-xs font-medium px-2.5 py-1 rounded-full">Draft</span>
+                                </td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-orange-400 hover:border-orange-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                                            </svg>
+                                        </button>
+                                        <label for="campaign-create-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 12. CREATE / EDIT CAMPAIGN MODAL -->
+<!-- ============================================================ -->
+<section class="campaign-create-modal" aria-hidden="true">
+    <label for="campaign-create-modal-toggle" class="campaign-create-modal__backdrop"
+        aria-label="Close create campaign modal"></label>
+
+    <div class="campaign-create-modal__dialog bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl" role="dialog"
+        aria-modal="true" aria-labelledby="campaign-create-modal-title">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1e2a45]">
+            <div>
+                <h3 id="campaign-create-modal-title" class="text-white font-bold text-sm">Create Campaign</h3>
+                <p class="text-[#4a5568] text-xs">Email or SMS marketing campaign</p>
+            </div>
+            <label for="campaign-create-modal-toggle"
+                class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+        <div class="p-6 space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2">
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Campaign Name *</label>
+                    <input type="text" placeholder="e.g. April Weekend Special"
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Channel *</label>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex-1 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold py-2.5 rounded-xl">📧
+                            Email</button>
+                        <button
+                            class="flex-1 bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] text-xs font-medium py-2.5 rounded-xl hover:border-orange-500 hover:text-white transition-all">📱
+                            SMS</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Segment</label>
+                    <select
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                        <option>All Customers</option>
+                        <option>Loyalty Members</option>
+                        <option>Birthday This Month</option>
+                        <option>Inactive 30+ days</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Email Subject</label>
+                    <input type="text" placeholder="Subject line..."
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Schedule At</label>
+                    <input type="datetime-local"
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Body Template *</label>
+                    <textarea rows="4"
+                        placeholder="Write your email/SMS body here. Use {customerName}, {discount}, {expiryDate} as variables..."
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 resize-none"></textarea>
+                </div>
+                <div class="col-span-2 flex items-center justify-between bg-[#1a2338] border border-[#1e2a45] rounded-xl px-4 py-3">
+                    <div>
+                        <p class="text-white text-xs font-semibold">Enable A/B Testing</p>
+                        <p class="text-[#4a5568] text-[11px]">Create a variant B to split-test subject/body</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div
+                            class="w-9 h-5 bg-[#0d1220] border border-[#1e2a45] peer-checked:bg-orange-500 rounded-full transition-all after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-4">
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2 px-6 pb-6">
+            <label for="campaign-create-modal-toggle"
+                class="flex-1 text-center bg-[#1a2338] border border-[#1e2a45] text-[#6b7a99] text-sm font-medium py-2.5 rounded-xl hover:text-white transition-all cursor-pointer">Save
+                as Draft</label>
+            <button
+                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-colors">Schedule
+                Campaign 🚀</button>
+        </div>
+    </div>
+</section>

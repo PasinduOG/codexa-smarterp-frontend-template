@@ -1,0 +1,305 @@
+<!-- suppliers.component.html -->
+
+<input id="supplier-modal-toggle" type="checkbox" class="supplier-modal-toggle" aria-hidden="true">
+
+<div class="flex h-screen bg-[#0a0e1a] font-['Sora',sans-serif] overflow-hidden">
+
+    <div class="sm:ml-64 flex-1 flex flex-col overflow-hidden">
+        <header class="bg-[#0d1220] border-b border-[#1e2a45] px-6 py-3.5 flex items-center justify-between shrink-0">
+            <div>
+                <h1 class="text-white font-bold text-base">Suppliers</h1>
+                <p class="text-[#4a5568] text-xs">Manage supplier contacts and details</p>
+            </div>
+            <label for="supplier-modal-toggle"
+                class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 4v16m8-8H4" />
+                </svg>Add Supplier
+            </label>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 space-y-5">
+            <!-- Search -->
+            <div class="relative max-w-md">
+                <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4a5568]" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                </svg>
+                <input type="text" placeholder="Search suppliers..."
+                    class="w-full bg-[#0d1220] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-orange-500">
+            </div>
+
+            <!-- Suppliers Table -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[#1e2a45]">
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Supplier</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Contact Person</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Phone</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Email</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Address</th>
+                                <th
+                                    class="text-left text-[#4a5568] text-xs font-semibold uppercase tracking-wider px-5 py-3.5">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#1e2a45]">
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-xs">
+                                            FM</div>
+                                        <p class="text-white font-semibold text-sm">Fresh Meat Suppliers</p>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Nuwan Jayasuriya</td>
+                                <td class="px-5 py-4 text-white text-xs">+94 77 234 5678</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">nuwan@freshmeat.lk</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Dematagoda, Colombo 09</td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <label for="supplier-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg></label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                                            GV</div>
+                                        <p class="text-white font-semibold text-sm">Green Valley Farms</p>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Chamari Perera</td>
+                                <td class="px-5 py-4 text-white text-xs">+94 71 345 6789</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">chamari@greenvalley.lk</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Nuwara Eliya</td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <label for="supplier-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg></label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs">
+                                            SD</div>
+                                        <p class="text-white font-semibold text-sm">Seafood Direct</p>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Roshan Bandara</td>
+                                <td class="px-5 py-4 text-white text-xs">+94 76 456 7890</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">roshan@seafooddirect.lk</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Negombo</td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <label for="supplier-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg></label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[#1a2338]/40 transition-colors">
+                                <td class="px-5 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 font-bold text-xs">
+                                            DS</div>
+                                        <p class="text-white font-semibold text-sm">Dairy Solutions (Pvt) Ltd</p>
+                                    </div>
+                                </td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Kasuni Wijesinghe</td>
+                                <td class="px-5 py-4 text-white text-xs">+94 78 567 8901</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">kasuni@dairysolutions.lk</td>
+                                <td class="px-5 py-4 text-[#6b7a99] text-xs">Kandy</td>
+                                <td class="px-5 py-4">
+                                    <div class="flex gap-2">
+                                        <label for="supplier-modal-toggle"
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-blue-400 hover:border-blue-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg></label>
+                                        <button
+                                            class="w-7 h-7 rounded-lg bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-red-400 hover:border-red-500 transition-all"><svg
+                                                class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M3 6h18M19 6l-1 14H6L5 6m5 0V4h4v2" />
+                                            </svg></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add/Edit Supplier Form Card -->
+            <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-6">
+                <h2 class="text-white font-bold text-sm mb-5">Add New Supplier</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Company Name *</label>
+                        <input type="text" placeholder="e.g. Fresh Meat Suppliers"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Contact Person</label>
+                        <input type="text" placeholder="Contact name"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Phone</label>
+                        <input type="tel" placeholder="+94 77 123 4567"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Email</label>
+                        <input type="email" placeholder="supplier@email.lk"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-[#6b7a99] text-xs font-medium mb-2">Address</label>
+                        <input type="text" placeholder="Full address"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500">
+                    </div>
+                </div>
+                <div class="flex justify-end gap-3 mt-5">
+                    <button
+                        class="bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all">Cancel</button>
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors">Save
+                        Supplier</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="supplier-modal" aria-hidden="true">
+    <label for="supplier-modal-toggle" class="supplier-modal__backdrop" aria-label="Close supplier modal"></label>
+
+    <div class="supplier-modal__dialog w-full max-w-lg mx-4 bg-[#0d1220] border border-[#1e2a45] rounded-2xl shadow-2xl overflow-hidden">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1e2a45]">
+            <div>
+                <!-- Title changes: "Add Supplier" or "Edit Supplier" depending on mode -->
+                <h3 class="text-white font-bold text-sm">Edit Supplier</h3>
+                <p class="text-[#4a5568] text-xs mt-0.5">Update supplier contact details</p>
+            </div>
+            <label for="supplier-modal-toggle"
+                class="w-8 h-8 rounded-xl bg-[#1a2338] border border-[#1e2a45] flex items-center justify-center text-[#6b7a99] hover:text-white hover:border-orange-500 transition-all cursor-pointer"
+                aria-label="Close">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </label>
+        </div>
+
+        <!-- Form Body -->
+        <div class="p-6 space-y-4">
+
+            <!-- Company Name -->
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Company Name <span
+                        class="text-red-400">*</span></label>
+                <input type="text" placeholder="e.g. Fresh Meat Suppliers" value="Fresh Meat Suppliers"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 transition-colors" />
+            </div>
+
+            <!-- Contact Person -->
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Contact Person</label>
+                <input type="text" placeholder="Contact name" value="Nuwan Jayasuriya"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 transition-colors" />
+            </div>
+
+            <!-- Phone + Email side by side -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Phone</label>
+                    <input type="tel" placeholder="+94 77 123 4567" value="+94 77 234 5678"
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 transition-colors" />
+                </div>
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Email</label>
+                    <input type="email" placeholder="supplier@email.lk" value="nuwan@freshmeat.lk"
+                        class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 transition-colors" />
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div>
+                <label class="block text-[#6b7a99] text-xs font-medium mb-2">Address</label>
+                <input type="text" placeholder="Full address" value="Dematagoda, Colombo 09"
+                    class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-orange-500 transition-colors" />
+            </div>
+
+        </div>
+
+        <!-- Footer Buttons -->
+        <div class="flex items-center gap-3 px-6 pb-6">
+            <label for="supplier-modal-toggle"
+                class="flex-1 text-center bg-[#1a2338] border border-[#1e2a45] hover:border-orange-500 text-[#6b7a99] hover:text-white text-sm font-medium py-2.5 rounded-xl transition-all cursor-pointer">Cancel</label>
+            <!-- Save — (click)="saveSupplier()" — calls PUT /api/supplier/update or POST /api/supplier/save -->
+            <button
+                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-2.5 rounded-xl transition-colors">
+                Save Supplier
+            </button>
+        </div>
+
+    </div>
+</section>

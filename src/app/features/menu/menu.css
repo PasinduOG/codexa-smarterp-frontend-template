@@ -1,10 +1,10 @@
-.customer-modal-toggle {
+.menu-item-modal-toggle {
 	position: fixed;
 	opacity: 0;
 	pointer-events: none;
 }
 
-.customer-modal {
+.menu-item-modal {
 	position: fixed;
 	inset: 0;
 	display: flex;
@@ -18,67 +18,62 @@
 	z-index: 60;
 }
 
-.customer-modal-toggle:checked ~ .customer-modal {
+.menu-item-modal-toggle:checked ~ .menu-item-modal {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
 }
 
-.customer-modal__backdrop {
+.menu-item-modal__backdrop {
 	position: absolute;
 	inset: 0;
 	background: rgba(4, 10, 22, 0.72);
 	backdrop-filter: blur(3px);
 }
 
-.customer-modal__dialog {
+.menu-item-modal__dialog {
 	position: relative;
-	width: min(42rem, 100%);
+	width: min(52rem, 100%);
 	max-height: calc(100vh - 2rem);
 	overflow-y: auto;
 }
 
-.customer-profile-drawer-toggle {
+.menu-category-modal-toggle {
 	position: fixed;
 	opacity: 0;
 	pointer-events: none;
 }
 
-.customer-profile-drawer {
+.menu-category-modal {
 	position: fixed;
 	inset: 0;
 	display: flex;
-	justify-content: flex-end;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
 	transition: opacity 180ms ease, visibility 180ms ease;
-	z-index: 70;
+	z-index: 60;
 }
 
-.customer-profile-drawer-toggle:checked ~ .customer-profile-drawer {
+.menu-category-modal-toggle:checked ~ .menu-category-modal {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
 }
 
-.customer-profile-drawer__backdrop {
+.menu-category-modal__backdrop {
 	position: absolute;
 	inset: 0;
 	background: rgba(4, 10, 22, 0.72);
 	backdrop-filter: blur(3px);
 }
 
-.customer-profile-drawer__panel {
+.menu-category-modal__dialog {
 	position: relative;
-	margin: 0.75rem;
-	width: min(20rem, calc(100vw - 1.5rem));
-	height: calc(100vh - 1.5rem);
+	width: min(28rem, 100%);
+	max-height: calc(100vh - 2rem);
 	overflow-y: auto;
-	transform: translateX(110%);
-	transition: transform 220ms ease;
-}
-
-.customer-profile-drawer-toggle:checked ~ .customer-profile-drawer .customer-profile-drawer__panel {
-	transform: translateX(0);
 }

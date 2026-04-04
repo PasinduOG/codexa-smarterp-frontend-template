@@ -3,3 +3,73 @@
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+
+/* Global light theme overrides for existing utility-based templates */
+:root {
+	color-scheme: light;
+}
+
+body {
+	background-color: #f3f6fb;
+	color: #0f172a;
+}
+
+/* Base surfaces */
+.bg-\[\#0a0e1a\] {
+	background-color: #f3f6fb !important;
+}
+
+.bg-\[\#0d1220\] {
+	background-color: #ffffff !important;
+}
+
+.bg-\[\#1a2338\] {
+	background-color: #eef3fb !important;
+}
+
+/* Border and text palette */
+.border-\[\#1e2a45\] {
+	border-color: #d6dfeb !important;
+}
+
+.text-\[\#2d3a52\] {
+	color: #94a3b8 !important;
+}
+
+.text-\[\#4a5568\] {
+	color: #64748b !important;
+}
+
+.text-\[\#6b7a99\] {
+	color: #334155 !important;
+}
+
+/* Keep hover states subtle on light surfaces */
+.hover\:bg-\[\#1a2338\]:hover,
+.hover\:bg-\[\#1a2338\]\/40:hover,
+.hover\:bg-\[\#1a2338\]\/50:hover {
+	background-color: #e2e8f0 !important;
+}
+
+/* Convert old white text to dark for light mode */
+.text-white {
+	color: #0f172a !important;
+}
+
+/* Preserve white text on primary accent backgrounds */
+.bg-orange-500.text-white,
+.bg-orange-600.text-white,
+.bg-blue-500.text-white,
+.bg-blue-600.text-white,
+.bg-emerald-500.text-white,
+.bg-emerald-600.text-white,
+.bg-red-500.text-white,
+.bg-violet-500.text-white,
+[class*="from-"][class*="to-"].text-white,
+.from-\[\#f97316\].to-\[\#ea580c\].text-white {
+	color: #ffffff !important;
+}
+
+.hover\:text-white:hover {
+	color: #0f172a !important;
+}
