@@ -1,0 +1,107 @@
+<!-- login.component.html -->
+
+<div
+    class="min-h-screen bg-[#0a0e1a] font-['Sora',sans-serif] flex items-center justify-center relative overflow-hidden">
+
+    <!-- Background decorative blobs -->
+    <div
+        class="absolute top-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none">
+    </div>
+    <div
+        class="absolute bottom-0 right-0 w-96 h-96 bg-violet-500/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl pointer-events-none">
+    </div>
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-orange-500/3 rounded-full blur-3xl pointer-events-none">
+    </div>
+
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.02]"
+        style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+    <div class="w-full max-w-sm mx-4 relative z-10">
+
+        <!-- Logo + Header -->
+        <div class="text-center mb-8">
+            <div
+                class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-orange-500 to-orange-600 shadow-2xl shadow-orange-900/50 mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+                </svg>
+            </div>
+            <h1 class="text-white text-2xl font-bold tracking-tight">SMARTERP</h1>
+            <p class="text-[#4a5568] text-sm mt-1">Sign in to your account</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="bg-[#0d1220] border border-[#1e2a45] rounded-2xl p-6 shadow-2xl">
+
+            <!-- Role selector tabs -->
+            <div class="flex gap-1 bg-[#1a2338] rounded-xl p-1 mb-6">
+                <button
+                    class="flex-1 bg-orange-500 text-white text-xs font-semibold py-2 rounded-lg transition-all">Admin</button>
+                <button
+                    class="flex-1 text-[#6b7a99] hover:text-white text-xs font-medium py-2 rounded-lg transition-all">Cashier</button>
+                <button
+                    class="flex-1 text-[#6b7a99] hover:text-white text-xs font-medium py-2 rounded-lg transition-all">Waiter</button>
+                <button
+                    class="flex-1 text-[#6b7a99] hover:text-white text-xs font-medium py-2 rounded-lg transition-all">Chef</button>
+            </div>
+
+            <!-- Form Fields -->
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Username</label>
+                    <div class="relative">
+                        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4a5568]" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        <input type="text" placeholder="Enter username"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl pl-10 pr-4 py-3 focus:outline-none focus:border-orange-500 transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[#6b7a99] text-xs font-medium mb-2">Password</label>
+                    <div class="relative">
+                        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4a5568]" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0110 0v4" />
+                        </svg>
+                        <input type="password" placeholder="Enter password"
+                            class="w-full bg-[#1a2338] border border-[#1e2a45] text-white placeholder-[#4a5568] text-sm rounded-xl pl-10 pr-10 py-3 focus:outline-none focus:border-orange-500 transition-colors">
+                        <button
+                            class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#4a5568] hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 rounded border-[#1e2a45] bg-[#1a2338] accent-orange-500">
+                        <span class="text-[#6b7a99] text-xs">Remember me</span>
+                    </label>
+                    <a href="#" class="text-orange-400 text-xs hover:text-orange-300 transition-colors">Forgot
+                        password?</a>
+                </div>
+
+                <a routerLink="/dashboard"
+                    class="block w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm font-bold py-3 rounded-xl transition-all text-center shadow-lg shadow-orange-900/40">
+                    Sign In →
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Footer note -->
+        <p class="text-center text-[#2d3a52] text-xs mt-6">Restora Restaurant Management System v2.0</p>
+    </div>
+</div>

@@ -39,7 +39,7 @@
             </a>
 
             <!-- POS System -->
-            <a routerLink="/pos"
+            <a routerLink="/dashboard/pos"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
             </a>
 
             <!-- POS Orders -->
-            <a routerLink="/orders"
+            <a routerLink="/dashboard/orders"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -61,7 +61,7 @@
             </a>
 
             <!-- Kitchen Board -->
-            <a routerLink="/kitchen"
+            <a routerLink="/dashboard/kitchen"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -73,7 +73,7 @@
             </a>
 
             <!-- Reservations -->
-            <a href="/reservation"
+            <a href="/dashboard/reservation"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -87,7 +87,7 @@
             </p>
 
             <!-- Customers -->
-            <a routerLink="/customers"
+            <a routerLink="/dashboard/customers"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -99,7 +99,7 @@
             </a>
 
             <!-- Menu -->
-            <a routerLink="/menu"
+            <a routerLink="/dashboard/menu"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -110,7 +110,7 @@
             </a>
 
             <!-- Suppliers -->
-            <a routerLink="/suppliers"
+            <a routerLink="/dashboard/suppliers"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -123,7 +123,7 @@
             <p class="text-[#2d3a52] text-2xs font-semibold tracking-widest uppercase px-3 mt-4 mb-2">Admin</p>
 
             <!-- Campaigns -->
-            <a routerLink="/campaigns"
+            <a routerLink="/dashboard/campaigns"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -134,7 +134,7 @@
             </a>
 
             <!-- Email Settings -->
-            <a routerLink="/email"
+            <a routerLink="/dashboard/email"
                 class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#6b7a99] hover:text-white hover:bg-[#1a2338] transition-all duration-200 group">
                 <svg class="w-4.5 h-4.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
@@ -156,11 +156,13 @@
                     <p class="text-white text-xs font-semibold truncate">Admin User</p>
                     <p class="text-[#4a5568] text-2xs truncate">admin@smarterp.lk</p>
                 </div>
-                <svg class="w-4 h-4 text-[#4a5568]" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
+                <a routerLink="/auth/login">
+                    <svg class="w-4 h-4 text-[#4a5568]" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Sidebar } from "../../common/sidebar/sidebar";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [Sidebar, RouterOutlet],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
